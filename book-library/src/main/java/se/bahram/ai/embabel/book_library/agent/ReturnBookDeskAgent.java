@@ -44,7 +44,7 @@ public class ReturnBookDeskAgent {
     @Action
     LateFee processLateFee(BorrowCard borrowCard) {
         long lateDays = (new Date().getTime() - borrowCard.dueDate().getTime()) / (1000 * 60 * 60 * 24);
-        double fee = lateDays * 1.0; // $1 per late day
+        double fee = lateDays * -1.0; // $1 per late day
         return new LateFee(fee, lateDays);
     }
 
