@@ -31,7 +31,7 @@ public class ReturnBookDeskAgent {
     }
 
     @Action(pre = {"essentialsMissing"}, post = {"essentialsKnown"})
-    ReturnBookRequest requestEssentials(ReturnBookRequest req) {
+    ReturnBookRequest requestEssentials(ReturnBookRequest req, UserInput userInput, OperationContext ctx) {
         System.out.println("-------------------------------------------- Mocked requestEssentials called");
         return new ReturnBookRequest("321-XYZ", "M-789");
     }
