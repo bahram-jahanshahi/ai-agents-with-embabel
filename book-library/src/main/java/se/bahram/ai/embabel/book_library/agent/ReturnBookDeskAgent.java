@@ -15,7 +15,9 @@ import java.util.Date;
 )
 public class ReturnBookDeskAgent {
 
-    @Action
+    // 1) Parse user input -> ReturnBookRequest
+    //    We *optionally* advertise which postconditions this action may satisfy.
+    @Action(post = {"hasBookId", "hasMemberId"})
     ReturnBookRequest processRequest(UserInput userInput, OperationContext context) {
         var prompt = """
                 You are a helpful library assistant.
@@ -31,7 +33,18 @@ public class ReturnBookDeskAgent {
                 .createObject(prompt, ReturnBookRequest.class);
     }
 
-    @Action
+    // 2) Preconditions (side-effect free!)
+    // ✅ Condition to ensure bookId and memberID are known
+    @Condition
+    boolean essentialsKnown(ReturnBookRequest req) {
+        return req != null
+                && req.bookId() != null && !req.bookId().equalsIgnoreCase("Unknown")
+                && req.memberId() != null && !req.memberId().equalsIgnoreCase("Unknown");
+    }
+
+    // 3) Gate the next step on BOTH conditions.
+    //    If either is false, the process enters WAITING and the shell asks the user again.
+    @Action(pre = {"essentialsKnown"})
     BorrowCard retrieveBorrowCard(ReturnBookRequest returnBookRequest) {
         // Simulate retrieving a borrow card from a database
         return new BorrowCard(returnBookRequest.bookId(),
