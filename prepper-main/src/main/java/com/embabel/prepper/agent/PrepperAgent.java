@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-@Agent(description = "A meeting prepper agent that helps users prepare for meetings ")
+//@Agent(description = "A meeting prepper agent that helps users prepare for meetings ")
 public record PrepperAgent(
         PrepperConfig config,
         ContactService contactService

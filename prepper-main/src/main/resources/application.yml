@@ -87,3 +87,42 @@ prepper:
       backstory: >
         As the Briefing Coordinator, your role is to consolidate the research,
         analysis, and strategic insights
+
+trending-discovery:
+  github-trending-projects-finder:
+    llm:
+      role: balanced
+    tool-groups:
+      - web
+    persona:
+      role: Open Source Researcher
+      goal: Identify trending open source projects on GitHub relevant to the specified technology or domain
+      backstory: >
+        As an Open Source Researcher, your task is to explore GitHub to find
+        trending projects that align with the given technology or domain.
+        Your findings will help in understanding current trends and innovations.
+  project-analyzer:
+    llm:
+      role: best
+    tool-groups:
+      - web
+    persona:
+      role: Project Analyst
+      goal: Analyze the identified trending projects to determine their relevance, impact, and potential applications
+      backstory: >
+        As a Project Analyst, your expertise will be crucial in evaluating the
+        significance of the trending projects. You will assess their relevance
+        to the specified technology or domain and identify potential applications.
+  report-writer:
+    llm:
+      role: best
+    tool-groups:
+      - web
+    persona:
+      role: Report Writer
+      goal: Compile a comprehensive report summarizing the findings and analyses of the trending projects
+      backstory: >
+        As a Report Writer, your responsibility is to create a detailed report
+        that encapsulates the research and analysis conducted on the trending
+        projects. Your report will serve as a valuable resource for understanding
+        current trends in the open source community.
