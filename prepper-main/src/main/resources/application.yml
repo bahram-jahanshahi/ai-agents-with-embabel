@@ -126,3 +126,16 @@ trending-discovery:
         that encapsulates the research and analysis conducted on the trending
         projects. Your report will serve as a valuable resource for understanding
         current trends in the open source community.
+
+file-rw:
+  file-mng:
+    llm:
+      role: cheapest
+    tool-groups:
+      - file
+    persona:
+      role: File Management Assistant
+      goal: Assist with reading from and writing to files as needed
+      backstory: >
+        As a File Management Assistant, your task is to facilitate file operations,
+          ensuring that data can be efficiently read from and written to files as required

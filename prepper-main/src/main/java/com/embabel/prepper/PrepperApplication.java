@@ -19,6 +19,7 @@ import com.embabel.agent.config.annotation.EnableAgents;
 import com.embabel.agent.config.annotation.LoggingThemes;
 import com.embabel.agent.config.annotation.McpServers;
 import com.embabel.prepper.agent.PrepperConfig;
+import com.embabel.prepper.file_rw.agent.FileRwConfig;
 import com.embabel.prepper.github_trending_discovery.agent.TrendingDiscoveryConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,7 +29,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 
 @SpringBootApplication
-@EnableConfigurationProperties({PrepperConfig.class, TrendingDiscoveryConfig.class})
+@EnableConfigurationProperties({PrepperConfig.class, TrendingDiscoveryConfig.class, FileRwConfig.class})
 @EnableJpaRepositories(basePackages = "com.embabel.prepper")
 @EnableJpaAuditing
 @EnableAgents(
