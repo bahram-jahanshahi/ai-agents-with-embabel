@@ -15,7 +15,7 @@ public record FileRwShell(AgentPlatform agentPlatform) {
         return AgentInvocation.builder(agentPlatform)
                 .options(ProcessOptions.builder().verbosity(v -> v.showPrompts(true)).build())
                 .build(String.class)
-                .invoke(new FileRwDomain.FileWriteRequest("embabel", "firstContent"));
+                .invoke(new FileRwDomain.FileWriteRequest("embabel.txt", "firstContent"));
 
     }
 }

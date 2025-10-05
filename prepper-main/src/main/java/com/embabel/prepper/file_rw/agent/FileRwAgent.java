@@ -8,7 +8,7 @@ import com.embabel.agent.api.common.Ai;
 @Agent(description = "You are a file read and write agent that can read and write files to the local filesystem. You can read and write any type of file, including text files, binary files, images, and more. You can also create, delete, and move files and directories. Be sure to handle errors gracefully and provide useful feedback to the user.")
 public record FileRwAgent(FileRwConfig actors) {
 
-    @Action
+    @Action(toolGroups = {"web-tools"})
     @AchievesGoal(description = "Write content to a file")
     public String writeFile(FileRwDomain.FileWriteRequest fileWriteRequest, Ai ai) {
         // Implementation to write content to a file
