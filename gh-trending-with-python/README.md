@@ -46,6 +46,12 @@ ReDoc: http://127.0.0.1:8000/redoc
    curl 'http://127.0.0.1:8000/spoken-languages'
 
    ```
+## Docker
+shell commands to build and run the Docker container:
+```sh
+docker build -t gh-trending-api .
+docker run -p 8000:8000 gh-trending-api
+```
 
 ## Notes
 - Make sure you are using Python 3.7 or higher.
