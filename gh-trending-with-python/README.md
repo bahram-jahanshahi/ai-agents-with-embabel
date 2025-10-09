@@ -23,6 +23,22 @@ To install all required libraries, use the `requirements.txt` file. It lists all
    python src/main.py repos --since weekly --spoken-language en
    python main.py repos --language python --since weekly --spoken-language en 
    ```
+    or
+    ```sh
+   # Print weekly trending Python repos where the README/etc is in English
+    python src/main.py repos --language python --since weekly --spoken-language en
+    
+    # Same, but save to CSV
+    python src/main.py repos -l python -s weekly -S English -f csv -o out/python-weekly-en.csv
+    
+    # Trending developers for Rust (developers endpoint does not use spoken language)
+    python src/main.py developers -l rust -s monthly -f json -o out/rust-devs-monthly.json
+    
+    # Discover available language filters
+    python src/main.py list-langs | head -n 20
+    python src/main.py list-spoken-langs | grep -i "swedish"
+
+    ```
 
 ## Notes
 - Make sure you are using Python 3.7 or higher.
