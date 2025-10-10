@@ -16,14 +16,14 @@ public record TrendingDiscoveryAgent(TrendingDiscoveryConfig actors) {
         logger.info("Initialized TrendingDiscoveryAgent with config: {}", actors);
     }
 
-    @Action
-    @AchievesGoal(description = "Find all today trending projects on GitHub")
+    @Action(toolGroups = {"github-tools"})
+    @AchievesGoal(description = "Find all trending projects on GitHub")
     public TrendingDiscoveryDomain.TodayGitHubTrendingProject findTodayTrendingProject(
             TrendingDiscoveryDomain.DiscoveryRequest discoveryRequest,
             Ai ai) {
 
         var prompt = """
-                Explore today trending projects on https://github.com/trending?since=daily&spoken_language_code=en (GitHub Trending Page) with
+                You are a GitHub trending projects finder agent that can find the trending projects on GitHub.
                 Spoken Language is %s and Date Range is %s.
                 Fetch all the projects on this page and return the result
                 """.formatted(discoveryRequest.spokenLanguage(), discoveryRequest.dateRange());
