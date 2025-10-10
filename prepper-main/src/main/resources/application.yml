@@ -10,9 +10,11 @@ spring:
         sse:
           connections:
             file-mcp-server:
+              url: http://localhost:28082/sse
+              sse-endpoint: /sse
+            github-trending-mcp-server:
               url: http://localhost:28081/sse
               sse-endpoint: /sse
-
   datasource:
     url: jdbc:h2:file:./data/prepper;AUTO_SERVER=true
     driver-class-name: org.h2.Driver
