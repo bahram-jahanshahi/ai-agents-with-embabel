@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: gh-trending-mcp-server-with-java
+
+  ai:
+    mcp:
+      server:
+        name: github-trending-projects
+        sse-endpoint: /sse
+        sse-message-endpoint: /mcp/message
+        enabled: true
+        request-timeout: 60s
+        version: 1.0.0
+        stdio: false
+        type: sync
