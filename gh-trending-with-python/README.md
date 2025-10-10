@@ -44,7 +44,6 @@ ReDoc: http://127.0.0.1:8000/redoc
    # Discover filters
    curl 'http://127.0.0.1:8000/languages'
    curl 'http://127.0.0.1:8000/spoken-languages'
-
    ```
 ## Docker
 shell commands to build and run the Docker container:
