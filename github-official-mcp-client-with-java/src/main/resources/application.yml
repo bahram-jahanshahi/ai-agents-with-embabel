@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: github-official-mcp-client-with-java
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4o-mini
+    mcp:
+      client:
+        enabled: true
+        type: sync
+        request-timeout: 30s
+        stdio:
+          connections:
+            docker-gateway:
+              command: docker
+              args:
+                - mcp
+                - gateway
+                - run
+
+
+server:
+  port: 28083
