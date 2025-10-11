@@ -26,6 +26,7 @@ public record TrendingDiscoveryAgent(TrendingDiscoveryConfig actors) {
                 You are a GitHub trending projects finder agent that can find the trending projects on GitHub.
                 Spoken Language is %s and Date Range is %s.
                 Fetch all the projects on this page and return the result
+                For each project (repo and owner) get the README.md file and summarize the readme file content in a concise way.
                 """.formatted(discoveryRequest.spokenLanguage(), discoveryRequest.dateRange());
         logger.info("Action Prompt for Finding Today Trending Projects: {}", prompt);
 
